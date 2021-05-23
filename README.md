@@ -1,16 +1,18 @@
 # Udagram
 
-Hosting a full stack sample application on AWS (S3, EB, RDS)
+Codebase of a full stack sample application to be hosted on AWS (S3, EB, RDS).
 
 ## Getting started
 
 Provision the necessary AWS services needed for running the application:
 
-1. In AWS, provision a publicly available RDS database running Postgres.
-2. In AWS, provision a s3 bucket for hosting the uploaded files.
-3. Export the ENV variables needed or use [dotnev](https://www.npmjs.com/package/dotenv).
-4. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
-5. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
+1. Provision a publicly available AWS RDS database running Postgres.
+2. Provision an AWS S3 bucket for hosting the uploaded files.
+3. Export the ENV variables needed or use [dotenv](https://www.npmjs.com/package/dotenv).
+4. `cd starter/udagram-api` and install the node_modules `npm install`.
+5. After installation is done start the api in dev mode with `npm run dev`.
+6. `cd starter/udagram-frontend` and intall the node_modules `npm install`.
+7. sAfter installation is done start the api in dev mode with `npm run start`.
 
 ### Dependencies
 
