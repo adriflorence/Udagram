@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "frontend:install": "cd reactnd-contacts-complete && npm install",
-        "backend:install": "cd reactnd-contacts-server && npm install"
+        "frontend:test": "cd udagram-frontend && npm run test",
+        "frontend:install": "cd udagram-frontend && npm install",
+        "backend:install": "cd udagram-api && npm install"
     }
 }
