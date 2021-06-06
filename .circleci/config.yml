@@ -7,6 +7,7 @@ orbs:
   # Orbs reduce the amount of configuration required for common tasks. 
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@4.1
+  browser-tools: circleci/browser-tools@1.1.3
 
 
 jobs:
@@ -15,11 +16,10 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
-      - image: cimg/node:15.1
-        environment:
-          CHROME_BIN: /usr/bin/google-chrome
+      - image: cimg/node:15.0.1-browsers
     # CircleCI will report the results back to your VCS provider.
     steps:
+      - browser-tools/install-chrome
       - node/install
       - checkout
       - run:
@@ -39,8 +39,9 @@ jobs:
           command: npm run backend:build
   deploy:
     docker:
-      - image: cimg/node:15.1
+      - image: cimg/node:15.0.1-browsers
     steps:
+      - browser-tools/install-chrome
       - node/install
       - run:
           name: Deploy Application
@@ -53,4 +54,3 @@ workflows:
   udagram:
     jobs:
       - build
-      - deploy
