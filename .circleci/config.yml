@@ -16,22 +16,25 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
       - image: cimg/node:15.1
-    # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
       - node/install
       - checkout
-      # install the dependencies from a package.json and automatically cache them for faster future runs.
-      - node/install-packages
-      - run:
-          name: Run frontend tests
-          command: npm run frontend:test
       - run:
           name: Install Frontend Dependencies
           command: npm run frontend:install
       - run:
           name: Build Frontend
           command: npm run frontend:build
+      - run:
+          name: Run frontend tests
+          command: npm run frontend:test
+      - run:
+          name: Install Backend Dependencies
+          command: npm run backend:install
+      - run:
+          name: Build Backend
+          command: npm run backend:build
   deploy:
     docker:
       - image: cimg/node:15.1
