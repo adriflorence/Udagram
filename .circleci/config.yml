@@ -29,7 +29,7 @@ jobs:
           name: Build Frontend
           command: npm run frontend:build
       - run:
-          name: Run frontend tests
+          name: Run Frontend tests
           command: npm run frontend:test
       - run:
           name: Install Backend Dependencies
