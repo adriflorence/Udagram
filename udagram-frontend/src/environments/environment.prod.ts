@@ -4,8 +4,8 @@
 
 export const environment = {
   production: true,
-  appName: "Udagram",
-  apiHost: process.env.APIHOST_PROD,
+  appName: 'Udagram',
+  apiHost: '${process.env.APIHOST_PROD}'
 };
 
 /*
