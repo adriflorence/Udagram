@@ -17,5 +17,8 @@
   },
   "author": "Adri Forczek & Udacity",
   "license": "ISC",
-  "homepage": "https://github.com/adriflorence/Udagram"
+  "homepage": "https://github.com/adriflorence/Udagram",
+  "dependencies": {
+    "is-core-module": "^2.4.0"
+  }
 }
