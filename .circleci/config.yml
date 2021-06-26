@@ -42,6 +42,20 @@ jobs:
       - run:
           name: Frontend - Run Tests
           command: npm run frontend:test
+      - run:
+          name: Deploy ENV Variables to EB
+          command:
+            cd udagram-api && eb setenv POSTGRES_USERNAME=$AWS_POSTGRES_USERNAME
+            POSTGRES_PASSWORD=$AWS_POSTGRES_PASSWORD
+            POSTGRES_DB=$AWS_POSTGRES_DB
+            POSTGRES_HOST=$AWS_POSTGRES_HOST
+            PORT=$AWS_PORT
+            AWS_REGION=$AWS_REGION
+            AWS_PROFILE=$AWS_PROFILE
+            AWS_BUCKET=$AWS_BUCKET
+            AWS_ACCESS_KEY=$AWS_ACCESS_KEY
+            AWS_SECRET=$AWS_SECRET
+            JWT_SECRET=$JWT_SECRET
 
     
 
@@ -51,3 +65,9 @@ workflows:
   udagram:
     jobs:
       - build
+      # this restricts deployment to master branch only
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main
