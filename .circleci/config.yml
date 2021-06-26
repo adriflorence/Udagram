@@ -30,9 +30,6 @@ jobs:
           name: Backend - Build
           command: npm run backend:build
       - run:
-          name: Backend - Deploy
-          command: npm run backend:deploy
-      - run:
           name: Frontend - Install Dependencies
           command: npm run frontend:install
       - run:
@@ -55,6 +52,11 @@ jobs:
             AWS_ACCESS_KEY=$AWS_ACCESS_KEY
             AWS_SECRET=$AWS_SECRET
             JWT_SECRET=$JWT_SECRET
+  deploy:
+    steps:
+      - run:
+          name: Backend - Deploy
+          command: npm run backend:deploy
 
     
 
