@@ -11,7 +11,7 @@ orbs:
   aws-eb: circleci/aws-elastic-beanstalk@1.0.2
 
 jobs:
-  build:  
+  deploy:  
     # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
@@ -29,6 +29,9 @@ jobs:
       - run:
           name: Backend - Build
           command: npm run backend:build
+      - run:
+          name: Backend - Deploy
+          command: npm run backend:deploy
       - run:
           name: Frontend - Install Dependencies
           command: npm run frontend:install
@@ -52,11 +55,6 @@ jobs:
             AWS_ACCESS_KEY=$AWS_ACCESS_KEY
             AWS_SECRET=$AWS_SECRET
             JWT_SECRET=$JWT_SECRET
-  deploy:
-    steps:
-      - run:
-          name: Backend - Deploy
-          command: npm run backend:deploy
 
     
 
@@ -65,8 +63,6 @@ workflows:
   # Configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
   udagram:
     jobs:
-      - build
-      # this restricts deployment to master branch only
       - deploy:
           filters:
             branches:
