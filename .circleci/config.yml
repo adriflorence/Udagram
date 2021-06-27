@@ -24,15 +24,6 @@ jobs:
       - aws-eb/setup
       - checkout
       - run:
-          name: Backend - Install Dependencies
-          command: npm run backend:install
-      - run:
-          name: Backend - Build
-          command: npm run backend:build
-      - run:
-          name: Backend - Deploy
-          command: npm run backend:deploy
-      - run:
           name: Frontend - Install Dependencies
           command: npm run frontend:install
       - run:
@@ -41,6 +32,18 @@ jobs:
       - run:
           name: Frontend - Run Tests
           command: npm run frontend:test
+      - run:
+          name: Frontend - Deploy
+          command: npm run frontend:deploy
+      - run:
+          name: Backend - Install Dependencies
+          command: npm run backend:install
+      - run:
+          name: Backend - Build
+          command: npm run backend:build
+      - run:
+          name: Backend - Deploy
+          command: npm run backend:deploy
       - run:
           name: Deploy ENV Variables to EB
           command:

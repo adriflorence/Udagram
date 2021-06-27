@@ -1,0 +1,45 @@
+branch-defaults:
+  default:
+    environment: Udagramapi-env
+    group_suffix: null
+deploy:
+  artifact: www/Archive.zip
+environment-defaults:
+  Udagramapi-env:
+    branch: default
+    repository: udagram-api
+global:
+  application_name: udagram-api
+  branch: null
+  default_ec2_keyname: null
+  default_platform: Node.js 14 running on 64bit Amazon Linux 2
+  default_region: eu-west-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: git
+  workspace_type: Application
+branch-defaults:
+  default:
+    environment: Udagramapi-env
+environment-defaults:
+  Udagramapi-env:
+    branch: null
+    repository: null
+global:
+  application_name: udagram-api
+  default_ec2_keyname: null
+  default_platform: Node.js 14 running on 64bit Amazon Linux 2
+  default_region: eu-west-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application
+deploy:
+  artifact: www/Archive.zip
